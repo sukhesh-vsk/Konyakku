@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
+import replace from "./assets/exchange.png";
 
 
 function App() {
   const [options, setOption] = useState(['en','ma', 'ta', 'ja', 'fr', 'hi', 'ru', 'ml']);
   const [from, setFrom] = useState("en");
-  const [to, setTo] = useState("en");
+  const [to, setTo] = useState("ta");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("Your translation will appear here...");
   const [pronunciation, setPronunciation] = useState("");
@@ -17,6 +18,12 @@ function App() {
       setOutput("Loading...");
     }
   }, [isLoading]);
+
+  const replaceLang = () => {
+    const temp = from;
+    setFrom(to);
+    setTo(temp);
+  }
 
   const translate = async () => {
     setLoading(true);
@@ -36,7 +43,6 @@ function App() {
     .then(data => {
       setOutput(data.translated_text);
       setPronunciation(data.spell);
-      console.log(data);
     })
   
   }
@@ -53,46 +59,63 @@ function App() {
         alignItems: "center"
       }}
     >
-      <div>
-        From ({from}) : &nbsp;
-        <select
-          style={{
-            backgroundColor: "#fff",
-            boxShadow: "0 2px 2px 0 grey",
-            borderRadius: "5px 5px 5px 5px",
-            padding: "10px",
-            cursor: "pointer",
-            borderColor: "grey",
-          }}
-          onChange={(e) => setFrom(e.target.value)}
-        >
-          {options.map((opt, index) => (
-            <option
-              style={{ backgroundColor: "transparent", textAlign: "left", color: "black", fontSize: "15px"}}
-              key={index}
-              value={opt}
-            >
-              {opt}
-            </option>
-          ))}
-        </select>
-        &nbsp;To ({to}) : &nbsp;
-        <select
-          style={{
-            cursor: "pointer",
-            backgroundColor: "#fff",
-            boxShadow: "0 2px 2px 0 grey",
-            borderRadius: "5px 5px 5px 5px",
-            padding: "10px",
-          }}
-          onChange={(e) => setTo(e.target.value)}
-        >
-          {options.map((opt, index) => (
-            <option key={index} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+      <div style={{display: "flex", gap: "10px"}}>
+        <div>
+          From ({from}) : &nbsp;
+          <select
+            style={{
+              backgroundColor: "#fff",
+              boxShadow: "0 2px 2px 0 grey",
+              borderRadius: "5px 5px 5px 5px",
+              padding: "10px",
+              cursor: "pointer",
+              borderColor: "grey",
+            }}
+            value={from}
+            onChange={(e) => setFrom(e.target.value)}
+          >
+            {options.map((opt, index) => (
+              <option
+                style={{ backgroundColor: "transparent", textAlign: "left", color: "black", fontSize: "15px"}}
+                key={index}
+                value={opt}
+              >
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div style={{padding: "0", margin: "auto 0"}}>
+          <img 
+            src={replace} 
+            alt="replace icon" 
+            style={{
+              width: "25px",
+              cursor: "pointer",
+            }}
+            onClick={() => replaceLang()}
+            />
+        </div>
+        <div>
+          &nbsp;To ({to}) : &nbsp;
+          <select
+            style={{
+              cursor: "pointer",
+              backgroundColor: "#fff",
+              boxShadow: "0 2px 2px 0 grey",
+              borderRadius: "5px 5px 5px 5px",
+              padding: "10px",
+            }}
+            value={to}
+            onChange={(e) => setTo(e.target.value)}
+          >
+            {options.map((opt, index) => (
+              <option key={index} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       {/* For Getting text input */}
       <div>
