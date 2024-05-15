@@ -1,0 +1,20 @@
+services:
+  api:
+    build: api/
+    container_name: api_backend
+    ports:
+      - "5000:5000"
+    networks:
+      - konnyaku_net
+
+  frontend:
+    build: frontend/
+    container_name: konnyaku_frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - konnyaku_net
+  
+networks:
+  konnyaku_net:
+    driver: bridge
