@@ -47,9 +47,9 @@ function App() {
   }
 
   return (
-    <div style={styles.container}>
+    <div style={styles.container} id="cont">
       <div style={{display: "flex", gap: "10px"}}>
-        <LanguageSelector 
+        <LanguageSelector
               txt="From"
               lang={from}
               onChange={(e) => setFrom(e)}

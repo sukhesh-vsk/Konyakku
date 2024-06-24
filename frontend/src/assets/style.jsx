@@ -1,12 +1,15 @@
 export const styles = {
     container: {
         padding: "0",
-        border: "solid 15px black",
+        margin: "0",
+        height: "100vh",
         justifyContent: "center",
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "rgb(14 12 20)",
+        color: "rgb(249 142 142)"
     },
     select: {
         backgroundColor: "#fff",
@@ -23,8 +26,8 @@ export const styles = {
         fontSize: "15px"
     },
     inputFld: {
-        backgroundColor: "#000f",
-        color: "#fff",
+        backgroundColor: "rgb(212 209 255)",
+        color: "#000",
         borderRadius: "5px 5px 5px 5px",
         padding: "15px 15px 15px 15px",
         fontSize: "18px",
@@ -32,8 +35,8 @@ export const styles = {
     outputFld: {
         height: "200px", 
         width: "580px", 
-        backgroundColor: "#bdc1c6",
-        color: "000",
+        backgroundColor: "rgb(218 188 185)",
+        color: "rgb(0 0 0 / 82%)",
         fontSize: "18px",
         fontWeight: "bold",
         letterSpacing: "1.5px",
@@ -42,7 +45,7 @@ export const styles = {
         textAlign: "left",
     },
     translateBtn: {
-        backgroundColor: "blue",
+        backgroundColor: "#007bff",
         padding: "15px 15px",
         borderRadius: "5px 5px 5px 5px",
         textAlign: "center",
