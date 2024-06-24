@@ -4,7 +4,8 @@ export const styles = {
         fontWeight: "bold",
         fontSize: "30px",
         marginTop: "15px",
-        marginBottom: "7px"
+        marginBottom: "7px",
+        textDecoration: "none"
     },
     container: {
         padding: "0",

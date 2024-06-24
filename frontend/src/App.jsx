@@ -27,7 +27,7 @@ function App() {
 
   const translate = async () => {
     setLoading(true);
-    const response = await fetch('http://localhost:5000/translate', {
+    const response = await fetch('http://13.49.125.26:5000/translate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -48,8 +48,8 @@ function App() {
 
   return (
     <div style={styles.container} id="cont">
-      <div style={styles.head}>
-        KONNYAKU - The Translator
+      <div>
+        <a style={styles.head} href="https://github.com/sukhesh-vsk/Konyakku" target="_blank">KONNYAKU - The Translator</a>
       </div>
       <div style={{display: "flex", gap: "10px"}}>
         <LanguageSelector
