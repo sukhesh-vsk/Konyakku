@@ -48,6 +48,9 @@ function App() {
 
   return (
     <div style={styles.container} id="cont">
+      <div style={styles.head}>
+        KONNYAKU - The Translator
+      </div>
       <div style={{display: "flex", gap: "10px"}}>
         <LanguageSelector
               txt="From"

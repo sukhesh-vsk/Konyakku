@@ -1,4 +1,11 @@
 export const styles = {
+    head: {
+        color: "rgb(241 241 241 / 84%)",
+        fontWeight: "bold",
+        fontSize: "30px",
+        marginTop: "15px",
+        marginBottom: "7px"
+    },
     container: {
         padding: "0",
         margin: "0",
